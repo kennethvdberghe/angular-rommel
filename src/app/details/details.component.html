@@ -1,0 +1,30 @@
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+  <p>details works!</p>
+  <form
+    (ngSubmit)="saveAndContinue()"
+    #helloForm="ngForm"
+    style="display: flex; flex-direction: column; gap: 0.5rem"
+  >
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="companyDetails.values.name"
+    />
+    @if (companyDetails.values.name.length > 0) {
+    <label for="address">Address</label>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      [(ngModel)]="companyDetails.values.address"
+      required
+    />
+    }
+    <button>Save and continue</button>
+  </form>
+  <pre>submitted: {{ helloForm.submitted | json }}</pre>
+  <pre>valid: {{ helloForm.valid | json }}</pre>
+  <pre>companyDetails: {{ companyDetails.values | json }}</pre>
+</div>
